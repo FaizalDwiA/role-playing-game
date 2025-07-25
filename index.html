@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Menandakan bahwa ini adalah dokumen HTML5 -->
+<html lang="en">
+  <!-- Tag utama HTML dengan atribut bahasa: English -->
+  <head>
+    <!-- Bagian kepala dokumen: berisi metadata, link, title -->
+    <meta charset="utf-8" />
+    <!-- Menentukan encoding karakter: UTF-8 (standar global) -->
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Menghubungkan file CSS eksternal -->
+    <title>RPG - Dragon Repeller</title>
+    <!-- Judul halaman (tampil di tab browser) -->
+  </head>
+  <body>
+    <!-- Bagian utama yang ditampilkan di browser -->
+    <div id="game">
+      <!-- Container utama game -->
+
+      <!-- Bagian status pemain -->
+      <div id="stats">
+        <!-- Menampilkan XP pemain -->
+        <span class="stat"
+          >XP: <strong><span id="xpText">0</span></strong></span
+        >
+        <!-- Menampilkan Health pemain -->
+        <span class="stat"
+          >Health: <strong><span id="healthText">100</span></strong></span
+        >
+        <!-- Menampilkan Gold pemain -->
+        <span class="stat"
+          >Gold: <strong><span id="goldText">50</span></strong></span
+        >
+      </div>
+
+      <!-- Bagian kontrol tombol utama -->
+      <div id="controls">
+        <button id="button1">Go to store</button>
+        <!-- Tombol 1: pergi ke toko -->
+        <button id="button2">Go to cave</button>
+        <!-- Tombol 2: pergi ke gua -->
+        <button id="button3">Fight dragon</button>
+        <!-- Tombol 3: melawan naga -->
+      </div>
+
+      <!-- Bagian status monster (muncul saat bertarung) -->
+      <div id="monsterStats">
+        <!-- Nama monster yang sedang dilawan -->
+        <span class="stat"
+          >Monster Name: <strong><span id="monsterName"></span></strong
+        ></span>
+        <!-- Health monster -->
+        <span class="stat"
+          >Health: <strong><span id="monsterHealth"></span></strong
+        ></span>
+      </div>
+
+      <!-- Area teks narasi dan instruksi -->
+      <div id="text">
+        Welcome to Dragon Repeller. You must defeat the dragon that is
+        preventing people from leaving the town. You are in the town square.
+        Where do you want to go? Use the buttons above.
+      </div>
+    </div>
+
+    <!-- Menyisipkan file JavaScript untuk logika game -->
+    <script src="./script.js"></script>
+  </body>
+</html>

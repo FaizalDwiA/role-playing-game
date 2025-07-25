@@ -1,0 +1,152 @@
+/* === Global Reset & Font === */
+
+/* Import font retro "Press Start 2P" dari Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* Reset default box-sizing agar padding & border tidak merusak layout */
+* {
+  box-sizing: border-box;
+}
+
+/* Style dasar untuk seluruh body halaman */
+body {
+  margin: 0; /* Hilangkan margin default browser */
+  padding: 0; /* Hilangkan padding default browser */
+  background-color: #0a0a23; /* Warna latar belakang gelap */
+  font-family: "Press Start 2P", cursive; /* Font retro */
+  color: #fff; /* Warna teks default putih */
+  line-height: 1.4; /* Jarak antar baris teks */
+}
+
+/* === Game Container === */
+
+/* Style utama untuk container game */
+#game {
+  max-width: 900px; /* Maksimal lebar kontainer */
+  margin: 30px auto; /* Tengah secara horizontal dengan margin atas 30px */
+  background-color: #1a1a40; /* Latar belakang ungu tua */
+  border: 4px solid #ffffff; /* Border putih tebal */
+  border-radius: 10px; /* Sudut membulat */
+  box-shadow: 0 0 20px #00f7ff; /* Efek glow neon biru */
+  padding: 20px; /* Jarak isi ke pinggir */
+}
+/* === Stats & Controls === */
+
+/* Digunakan untuk stats, tombol, dan info monster */
+#stats,
+#controls,
+#monsterStats {
+  border: 2px solid #00f7ff; /* Border biru neon */
+  border-radius: 6px; /* Sudut membulat */
+  padding: 10px; /* Isi dalam */
+  margin-bottom: 15px; /* Jarak bawah antar section */
+  background-color: #121233; /* Latar belakang biru gelap */
+}
+
+/* Style teks stat */
+.stat {
+  display: inline-block; /* Supaya berdampingan */
+  margin-right: 15px; /* Jarak antar stat */
+  font-size: 10px; /* Ukuran font kecil (biar retro) */
+}
+
+/* === Monster Stats === */
+
+/* Kotak status monster saat bertarung */
+#monsterStats {
+  display: none; /* Disembunyikan saat tidak bertarung */
+  background-color: #c70d0d; /* Latar merah (darah) */
+  border-color: #fff; /* Border putih */
+  color: #fff; /* Teks putih */
+}
+
+/* === Text Area === */
+
+/* Area teks untuk narasi/instruksi */
+#text {
+  background-color: #111122; /* Latar biru sangat gelap */
+  border-left: 4px solid #00f7ff; /* Garis biru di kiri */
+  padding: 15px; /* Ruang dalam */
+  min-height: 100px; /* Supaya tidak terlalu pendek */
+  font-size: 10px; /* Font kecil, gaya retro */
+  margin-bottom: 15px; /* Jarak bawah */
+  white-space: pre-line; /* Agar newline (\n) tetap ditampilkan */
+}
+
+/* === Buttons === */
+
+/* Style tombol utama */
+button {
+  font-family: inherit; /* Gunakan font dari body */
+  font-size: 10px; /* Ukuran tombol kecil */
+  margin: 5px; /* Jarak antar tombol */
+  padding: 10px 15px; /* Ruang dalam tombol */
+  border: none; /* Hilangkan border default */
+  border-radius: 6px; /* Tombol agak membulat */
+  color: #0a0a23; /* Warna teks gelap (kontras dengan tombol) */
+  background: linear-gradient(
+    to bottom,
+    #ffd700,
+    #ffa500
+  ); /* Gradasi kuning ke oranye */
+  box-shadow: 0 4px #cc8800; /* Bayangan bawah, efek timbul */
+  cursor: pointer; /* Tunjukkan ini tombol bisa diklik */
+  transition: transform 0.15s ease, background 0.3s; /* Efek saat hover/klik */
+}
+
+/* Saat tombol di-hover */
+button:hover {
+  transform: scale(1.05); /* Membesar sedikit */
+  background: linear-gradient(
+    to bottom,
+    #fff95b,
+    #ffaa33
+  ); /* Gradasi lebih terang */
+}
+
+/* Saat tombol ditekan */
+button:active {
+  transform: scale(0.95); /* Mengecil sedikit */
+  box-shadow: none; /* Hilangkan efek bayangan */
+}
+
+/* === Responsive Layout === */
+
+/* CSS untuk tampilan mobile (layar sempit) */
+@media (max-width: 600px) {
+  body {
+    font-size: 10px; /* Ukuran font kecil agar muat */
+  }
+
+  #game {
+    width: 90%; /* Ambil 90% lebar layar */
+    padding: 15px; /* Padding agak dikurangi */
+  }
+
+  .stat {
+    display: block; /* Bikin stat satu per baris */
+    margin-bottom: 6px;
+  }
+
+  button {
+    width: 100%; /* Tombol penuh satu baris */
+    margin: 6px 0; /* Jarak atas-bawah tombol */
+  }
+}
+
+/* === Efek Flash Saat Attack === */
+
+/* Keyframe animasi untuk efek flash merah */
+@keyframes flashRed {
+  0% {
+    background-color: #c70d0d;
+  } /* Awal: merah darah */
+  100% {
+    background-color: #121233;
+  } /* Akhir: balik ke latar semula */
+}
+
+/* Efek flash saat class .flash-hit ditambahkan */
+#text.flash-hit {
+  animation: flashRed 0.3s ease-in-out;
+}
